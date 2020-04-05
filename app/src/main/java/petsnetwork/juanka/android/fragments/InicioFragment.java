@@ -164,14 +164,9 @@ public class InicioFragment extends Fragment {
 
             case R.id.adopcion:
                 Intent AdopcionIntent = new Intent(getActivity(), AdopcionActivity.class);
-                AdopcionIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                //.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(AdopcionIntent);
                 break;
-
-
-
-
-
 
         }
     }

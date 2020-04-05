@@ -44,6 +44,7 @@ public class AdopcionActivity extends AppCompatActivity {
     private String currentUserID;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +73,7 @@ public class AdopcionActivity extends AppCompatActivity {
                 Intent intentAddAdoption = new Intent(AdopcionActivity.this, AddDogAdopcion.class);
                 //intentComment.putExtra("PostKey", PostKey);
                 startActivity(intentAddAdoption);
+
 
             }
         });
