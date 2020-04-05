@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.petsnetwork.Inicio">
+
+
+    <item android:id="@+id/tienda"
+          android:title="@string/nav_tienda"
+          android:icon="@android:drawable/ic_menu_today"/>
+    <item android:id="@+id/adopcion"
+          android:title="@string/nav_adopcion"
+          android:icon="@drawable/dog3"
+    />
+
+    <item android:id="@+id/nav_settings"
+          android:title="@string/nav_settings"
+          android:orderInCategory="100"
+          android:icon="@drawable/settings"
+    />
+    <item android:id="@+id/nav_logout"
+          android:title="@string/nav_logout"
+          android:orderInCategory="100"
+          android:icon="@drawable/logout"
+    />
+</menu>

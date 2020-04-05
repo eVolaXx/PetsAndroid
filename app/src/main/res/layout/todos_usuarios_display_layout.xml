@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_margin="10dp"
+              android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/todos_usuarios_profile_image"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/profile"
+    />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content">
+
+        <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Usuario"
+                android:textAlignment="textStart"
+                android:id="@+id/display_user_amigo"/>
+        <TextView
+                android:text="Raza"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/textView_raza"/>
+
+        <TextView
+            android:id="@+id/display_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textAlignment="textStart" />
+
+        <TextView
+            android:id="@+id/textView_perro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mascota" />
+
+    </LinearLayout>
+
+</LinearLayout>
