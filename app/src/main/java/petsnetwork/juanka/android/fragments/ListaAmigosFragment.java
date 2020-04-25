@@ -85,38 +85,25 @@ public class ListaAmigosFragment extends Fragment {
         FirebaseRecyclerOptions<AmigosClass> options = new FirebaseRecyclerOptions.Builder<AmigosClass>().setQuery(FriendsRef, AmigosClass.class).build();
         FirebaseRecyclerAdapter<AmigosClass, ListaAmigosFragment.AmigosViewHolder> adapter = new FirebaseRecyclerAdapter<AmigosClass, AmigosViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final AmigosViewHolder amigosViewHolder, final int i, @NonNull final AmigosClass amigos) {
+            protected void onBindViewHolder(@NonNull final AmigosViewHolder amigosViewHolder, final int i, @NonNull final AmigosClass amigosModel) {
                 final String usersIDS = getRef(i).getKey();
 
                 UsersRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            final String nombre_usuario = dataSnapshot.child("usuario").getValue().toString();
-                            final String raza = dataSnapshot.child("raza").getValue().toString();
-                            final String mascota = dataSnapshot.child("mascota").getValue().toString();
-                            final String profileimage = dataSnapshot.child("profileimage").getValue().toString();
+                            final String PostKey = getRef(i).getKey();
 
-                            amigosViewHolder.usuario.setText(nombre_usuario);
-                            amigosViewHolder.raza.setText(raza);
-                            amigosViewHolder.mascota.setText(mascota);
-                            Picasso.get().load(profileimage).into(amigosViewHolder.user_image);
-                        }
+                            amigosViewHolder.fecha.setText(amigosModel.getFecha());
+                            amigosViewHolder.usuario.setText(amigosModel.getUsuario());
+                            amigosViewHolder.raza.setText(amigosModel.getRaza());
+                            amigosViewHolder.mascota.setText(amigosModel.getMascota());
+                            Picasso.get().load(amigosModel.getProfileimage()).into(amigosViewHolder.user_image);
+                            Picasso.get().load(amigosModel.getProfileimage())
+                                    .resize(0,1200)
+                                    .into(amigosViewHolder.user_image);
 
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-                FriendsRef.child(usersIDS).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            final String date = dataSnapshot.child("fecha").getValue().toString();
-                            amigosViewHolder.date.setText("Amigos desde: " + date);
 
                         }
 
@@ -125,10 +112,9 @@ public class ListaAmigosFragment extends Fragment {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                      databaseError.getMessage();
                     }
                 });
-
 
                 amigosViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -171,14 +157,14 @@ public class ListaAmigosFragment extends Fragment {
     }
 
     public class AmigosViewHolder extends RecyclerView.ViewHolder {
-        TextView usuario, date, raza, mascota;
+        TextView usuario, fecha, raza, mascota;
         CircleImageView user_image;
 
         public AmigosViewHolder(@NonNull View itemView) {
             super(itemView);
 
             usuario = itemView.findViewById(R.id.display_user_amigo);
-            date = itemView.findViewById(R.id.display_date);
+            fecha = itemView.findViewById(R.id.display_date);
             mascota = itemView.findViewById(R.id.textView_perro);
             raza = itemView.findViewById(R.id.textView_raza);
             user_image = itemView.findViewById(R.id.todos_usuarios_profile_image);

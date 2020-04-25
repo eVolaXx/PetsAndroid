@@ -51,7 +51,7 @@ import petsnetwork.juanka.android.SetupActivity;
 
 // Clase para enviar y añadir un perro en adopcion
 public class AddDogAdopcion extends AppCompatActivity {
-    private EditText EdtxAge, EdtxDogName, EdtxDogRace, EdtxContact, EdtxDescription;
+    private EditText EdtxAge, EdtxDogName, EdtxDogRace, EdtxContact, EdtxDescription, EdtxDogLocation;
     private ImageView DogImageAdoption;
     private Uri selectedImageUri;
     private FirebaseAuth mAuth;
@@ -76,7 +76,7 @@ public class AddDogAdopcion extends AppCompatActivity {
         //Firebase
         mAuth = FirebaseAuth.getInstance();
         currentUserID = mAuth.getCurrentUser().getUid();
-        AdoptionRef = FirebaseDatabase.getInstance().getReference().child("Adopciones").child(currentUserID);
+        AdoptionRef = FirebaseDatabase.getInstance().getReference().child("Adopciones");
         UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
         ImageRef = FirebaseStorage.getInstance().getReference().child("adoption_images");
 
@@ -86,6 +86,7 @@ public class AddDogAdopcion extends AppCompatActivity {
         EdtxDogRace = (EditText) findViewById(R.id.dog_race);
         EdtxContact = (EditText) findViewById(R.id.dog_contact);
         EdtxDescription = (EditText) findViewById(R.id.dog_description);
+        EdtxDogLocation = (EditText) findViewById(R.id.dog_location);
         DogImageAdoption = (ImageView) findViewById(R.id.dog_imageview);
 
         DogImageAdoption.setOnClickListener(new View.OnClickListener() {
@@ -115,6 +116,7 @@ public class AddDogAdopcion extends AppCompatActivity {
         final String dog_race = EdtxDogRace.getText().toString();
         final String dog_contact = EdtxContact.getText().toString();
         final String dog_description = EdtxDescription.getText().toString();
+        final String dog_location = EdtxDogLocation.getText().toString();
 
         // Hora y dia que se hace la publicacion y enviarla a Firebase
         Calendar calFordDate = Calendar.getInstance();
@@ -161,6 +163,9 @@ public class AddDogAdopcion extends AppCompatActivity {
         if (TextUtils.isEmpty(dog_contact)) {
             Toast.makeText(this, "Por favor, introduce el telefono de contacto", Toast.LENGTH_SHORT).show();
         }
+        if (TextUtils.isEmpty(dog_location)) {
+            Toast.makeText(this, "Por favor, introduce la ciudad donde se encuentra el perro", Toast.LENGTH_SHORT).show();
+        }
         if (TextUtils.isEmpty(dog_description)) {
             Toast.makeText(this, "Por favor, introduce una breve descripcion del caracter del perro y su comportamiento", Toast.LENGTH_SHORT).show();
         } else {
@@ -168,7 +173,6 @@ public class AddDogAdopcion extends AppCompatActivity {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     if (dataSnapshot.exists()) {
-
                         String userName = dataSnapshot.child("usuario").getValue().toString();
                         String userProfileImage = dataSnapshot.child("profileimage").getValue().toString();
 
@@ -184,6 +188,7 @@ public class AddDogAdopcion extends AppCompatActivity {
                         dogMap.put("contact", dog_contact);
                         dogMap.put("dogimage", downloadUrl);
                         dogMap.put("description", dog_description);
+                        dogMap.put("dog_location", dog_location);
                         dogMap.put("contador", contador_posts++);
                         AdoptionRef.child(currentUserID + "--" + postRandomName).updateChildren(dogMap).addOnCompleteListener(new OnCompleteListener() {
                             @Override
@@ -215,7 +220,6 @@ public class AddDogAdopcion extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == Gallery_Pick && resultCode == RESULT_OK && data != null && data.getData() != null) {
-
             selectedImageUri = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);

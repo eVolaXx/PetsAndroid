@@ -104,6 +104,14 @@
             android:hint="@string/descripcionfotos"
             android:padding="7dp" />
 
+        <EditText
+            android:id="@+id/dog_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/description_location"
+            android:padding="7dp" />
+
 
     </LinearLayout>
 
