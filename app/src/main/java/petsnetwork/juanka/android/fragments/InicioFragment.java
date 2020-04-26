@@ -90,6 +90,9 @@ public class InicioFragment extends Fragment {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+
+
+
         navigationView = (NavigationView) view.findViewById(R.id.navigation_view);
 
         //Barra de navegacion, nombre de usuario y imagen de perfil

@@ -94,11 +94,7 @@ public class ListaAmigosFragment extends Fragment {
                         if (dataSnapshot.exists()) {
                             final String PostKey = getRef(i).getKey();
 
-                            amigosViewHolder.fecha.setText(amigosModel.getFecha());
                             amigosViewHolder.usuario.setText(amigosModel.getUsuario());
-                            amigosViewHolder.raza.setText(amigosModel.getRaza());
-                            amigosViewHolder.mascota.setText(amigosModel.getMascota());
-                            Picasso.get().load(amigosModel.getProfileimage()).into(amigosViewHolder.user_image);
                             Picasso.get().load(amigosModel.getProfileimage())
                                     .resize(0,1200)
                                     .into(amigosViewHolder.user_image);
@@ -157,7 +153,7 @@ public class ListaAmigosFragment extends Fragment {
     }
 
     public class AmigosViewHolder extends RecyclerView.ViewHolder {
-        TextView usuario, fecha, raza, mascota;
+        TextView usuario;
         CircleImageView user_image;
 
         public AmigosViewHolder(@NonNull View itemView) {
