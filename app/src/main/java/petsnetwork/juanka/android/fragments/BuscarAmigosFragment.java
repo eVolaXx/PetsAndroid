@@ -94,8 +94,7 @@ public class BuscarAmigosFragment extends Fragment {
             protected void onBindViewHolder(@NonNull BuscarAmigosHolder holder, final int position, @NonNull AmigosClass amigosClass) {
                 final String PostKey = getRef(position).getKey();
                 holder.usuario.setText(amigosClass.getUsuario());
-                holder.raza.setText(amigosClass.getRaza());
-                holder.mascota.setText(amigosClass.getMascota());
+                holder.mascota.setText("Mascota: "+amigosClass.getMascota());
                 Picasso.get().load(amigosClass.getProfileimage()).into(holder.profileimage);
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -137,14 +136,13 @@ public class BuscarAmigosFragment extends Fragment {
     }
 
     public class BuscarAmigosHolder extends RecyclerView.ViewHolder {
-        TextView usuario, raza, mascota;
+        TextView usuario, mascota;
         CircleImageView profileimage;
 
         public BuscarAmigosHolder(@NonNull View itemView) {
             super(itemView);
             usuario = itemView.findViewById(R.id.display_user_amigo);
             mascota = itemView.findViewById(R.id.textView_perro);
-            raza = itemView.findViewById(R.id.textView_raza);
             profileimage = itemView.findViewById(R.id.todos_usuarios_profile_image);
         }
     }

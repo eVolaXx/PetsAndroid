@@ -25,17 +25,6 @@
                 android:text="Usuario"
                 android:textAlignment="textStart"
                 android:id="@+id/display_user_amigo"/>
-        <TextView
-                android:text="Raza"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView_raza"/>
-
-        <TextView
-            android:id="@+id/display_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:textAlignment="textStart" />
 
         <TextView
             android:id="@+id/textView_perro"

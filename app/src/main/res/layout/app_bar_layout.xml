@@ -3,7 +3,7 @@
     android:id="@+id/main_app_barra"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primary">
+    android:background="@color/headings">
 
 
 </androidx.appcompat.widget.Toolbar>

@@ -164,9 +164,6 @@ public class ListaAmigosFragment extends Fragment {
             super(itemView);
 
             usuario = itemView.findViewById(R.id.display_user_amigo);
-            fecha = itemView.findViewById(R.id.display_date);
-            mascota = itemView.findViewById(R.id.textView_perro);
-            raza = itemView.findViewById(R.id.textView_raza);
             user_image = itemView.findViewById(R.id.todos_usuarios_profile_image);
         }
     }
