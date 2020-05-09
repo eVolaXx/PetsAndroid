@@ -81,6 +81,8 @@ public class InicioFragment extends Fragment {
         //add this line if you want to provide Up Navigation but don't forget to to
         //identify parent activity in manifest file
         ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
+
 
 
 
