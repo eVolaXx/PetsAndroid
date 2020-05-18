@@ -1,46 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
-        tools:context=".ComentariosActivity">
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey"
+    tools:context=".ComentariosActivity">
 
 
     <TextView
-            android:text="Comentarios:"
-            android:textStyle="bold"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView3" android:layout_margin="5dp"/>
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="Comentarios:"
+        android:textStyle="bold" />
+
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="394dp"
-            android:layout_height="628dp" android:layout_alignParentStart="true"
-            android:layout_marginStart="5dp" android:layout_alignParentTop="true" android:layout_marginTop="31dp"
-            android:layout_marginEnd="5dp" android:layout_marginBottom="5dp" android:id="@+id/comentarios_list"/>
+        android:id="@+id/comentarios_list"
+        android:layout_width="394dp"
+        android:layout_height="628dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp" />
 
     <EditText
-            android:id="@+id/comentarios_input"
-            android:layout_width="338dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/inputs"
-            android:padding="10dp"
-            android:hint="Escribe un comentario.."
-            android:textColor="@android:color/black"
-            android:inputType="textMultiLine"
-            android:layout_alignParentStart="true" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="29dp" android:layout_marginStart="12dp"/>
+        android:id="@+id/comentarios_input"
+        android:layout_width="338dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="29dp"
+        android:background="@drawable/inputs"
+        android:hint="Escribe un comentario.."
+        android:inputType="textMultiLine"
+        android:padding="10dp"
+        android:textColor="@android:color/black" />
 
     <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/post_comentario_boton"
-            android:layout_alignBottom="@+id/comentarios_input"
-            android:layout_alignParentEnd="true"
-            android:padding="7dp"
-            android:src="@drawable/confirm" android:layout_marginEnd="0dp" android:layout_marginBottom="-11dp"/>
+        android:id="@+id/post_comentario_boton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/comentarios_input"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="-11dp"
+        android:padding="7dp"
+        android:src="@drawable/confirm" />
 
 
 </RelativeLayout>

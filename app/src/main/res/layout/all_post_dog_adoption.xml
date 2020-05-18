@@ -64,6 +64,18 @@
                     android:textColor="@android:color/black"/>
 
                 <TextView
+                    android:id="@+id/adoption_edad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Edad"
+                    android:textAlignment="textStart"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
                     android:id="@+id/adoption_contacto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

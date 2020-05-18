@@ -3,19 +3,24 @@
       tools:context="com.petsnetwork.Inicio">
 
 
-    <item android:id="@+id/tienda"
-          android:title="@string/nav_tienda"
-          android:icon="@android:drawable/ic_menu_today"/>
+    <item
+        android:id="@+id/tienda"
+        android:icon="@drawable/ic_shoping_bar"
+        android:title="@string/nav_tienda" />
     <item android:id="@+id/adopcion"
           android:title="@string/nav_adopcion"
           android:icon="@drawable/dog3"
     />
+    <item
+        android:id="@+id/educacion"
+        android:icon="@drawable/dog_menu"
+        android:title="@string/nav_educacion" />
 
-    <item android:id="@+id/nav_settings"
-          android:title="@string/nav_settings"
-          android:orderInCategory="100"
-          android:icon="@drawable/settings"
-    />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/ic_settings_bar"
+        android:orderInCategory="100"
+        android:title="@string/nav_settings" />
     <item android:id="@+id/nav_logout"
           android:title="@string/nav_logout"
           android:orderInCategory="100"

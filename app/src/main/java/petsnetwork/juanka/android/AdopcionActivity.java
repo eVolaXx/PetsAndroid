@@ -39,7 +39,6 @@ public class AdopcionActivity extends AppCompatActivity {
 
     //Firebase
     private DatabaseReference UsersRef, AdoptionReference;
-    private StorageReference UserImageRef;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
@@ -92,10 +91,13 @@ public class AdopcionActivity extends AppCompatActivity {
 
 
                 adopcionesViewHolder.user.setText(perrosAdopcionInfo.getUser());
+                Picasso.get().load(perrosAdopcionInfo.getProfileimage()).into(adopcionesViewHolder.user_post_image_adoption);
                 adopcionesViewHolder.time.setText("" + perrosAdopcionInfo.getTime());
                 adopcionesViewHolder.date.setText("" + perrosAdopcionInfo.getDate());
-                adopcionesViewHolder.contacto.setText(perrosAdopcionInfo.getContacto());
-                adopcionesViewHolder.raza.setText(perrosAdopcionInfo.getRace());
+                adopcionesViewHolder.edad.setText("" + perrosAdopcionInfo.getEdad());
+                adopcionesViewHolder.location.setText("" + perrosAdopcionInfo.getLocation());
+                adopcionesViewHolder.contact.setText(perrosAdopcionInfo.getContacto());
+                adopcionesViewHolder.race.setText(perrosAdopcionInfo.getRace());
                 adopcionesViewHolder.dog_name.setText(perrosAdopcionInfo.getDogName());
                 adopcionesViewHolder.description.setText(perrosAdopcionInfo.getDescription());
 
@@ -124,23 +126,25 @@ public class AdopcionActivity extends AppCompatActivity {
 
 
     public static class AdopcionesViewHolder extends RecyclerView.ViewHolder {
-        TextView user, date, time, description, contacto, raza, dog_name;
-        CircleImageView user_post_image;
+        TextView user, date, time, edad, description, location, contact, race, dog_name;
+        CircleImageView user_post_image_adoption;
         ImageView dogImage;
         String currentIdUsuario;
 
 
         public AdopcionesViewHolder(@NonNull View itemView) {
             super(itemView);
-            user = itemView.findViewById(R.id.post_usuario_adoption);
-            dog_name = itemView.findViewById(R.id.adoption_name);
+            user = itemView.findViewById(R.id.post_nombre_usuario);
+            dog_name = itemView.findViewById(R.id.dog_name);
             date = itemView.findViewById(R.id.post_date_adoption);
             time = itemView.findViewById(R.id.post_time_adoption);
-            description = itemView.findViewById(R.id.post_descripcion_adoption);
-            contacto = itemView.findViewById(R.id.adoption_contacto);
-            raza = itemView.findViewById(R.id.adoption_raza);
-            user_post_image = itemView.findViewById(R.id.post_profile_adoption);
-            dogImage = itemView.findViewById(R.id.post_dog_image);
+            edad = itemView.findViewById(R.id.adoption_edad);
+            description = itemView.findViewById(R.id.dog_description);
+            location = itemView.findViewById(R.id.dog_location);
+            contact = itemView.findViewById(R.id.dog_contact);
+            race = itemView.findViewById(R.id.dog_race);
+            user_post_image_adoption = itemView.findViewById(R.id.post_profile_adoption);
+            dogImage = itemView.findViewById(R.id.dog_imageview);
 
         }
 

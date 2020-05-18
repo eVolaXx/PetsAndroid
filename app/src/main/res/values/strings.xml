@@ -70,4 +70,5 @@
     <string name="action_reply">Reply</string>
     <string name="title_activity_add_dog_adopcion">Nueva Adopcion</string>
     <string name="description_location">Ubicación</string>
+    <string name="nav_educacion">Educación Canina</string>
 </resources>

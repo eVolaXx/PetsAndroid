@@ -2,7 +2,7 @@ package petsnetwork.juanka.android;
 
 public class PerrosAdopcionInfo {
 
-    public String name, user, time, dog_image, date, race, uid, age, description, comportamiento, contact;
+    public String name, user, location, time, dog_image, profileimage, date, race, uid, age, description, comportamiento, contact;
 
     public PerrosAdopcionInfo() {
 
@@ -40,13 +40,30 @@ public class PerrosAdopcionInfo {
         this.date = date;
     }
 
-    public PerrosAdopcionInfo(String name, String dog_image, String time, String date, String user, String uid, String race, String age, String description, String comportamiento, String contact) {
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getProfileimage() {
+        return profileimage;
+    }
+
+    public void setProfileimage(String profileimage) {
+        this.profileimage = profileimage;
+    }
+
+    public PerrosAdopcionInfo(String name, String dog_image, String profileimage, String time, String date, String user, String location, String uid, String race, String age, String description, String comportamiento, String contact) {
         this.name = name;
         this.date = date;
         this.time = time;
         this.dog_image = dog_image;
         this.uid = uid;
         this.user = user;
+        this.location = location;
         this.race = race;
         this.age = age;
         this.dog_image = dog_image;
