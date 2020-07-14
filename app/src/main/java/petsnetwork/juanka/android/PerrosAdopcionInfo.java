@@ -58,6 +58,7 @@ public class PerrosAdopcionInfo {
 
     public PerrosAdopcionInfo(String name, String dog_image, String profileimage, String time, String date, String user, String location, String uid, String race, String age, String description, String comportamiento, String contact) {
         this.name = name;
+        this.profileimage = profileimage;
         this.date = date;
         this.time = time;
         this.dog_image = dog_image;

@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,29 +18,38 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import petsnetwork.juanka.AddDogAdopcion;
-import petsnetwork.juanka.android.fragments.InicioFragment;
 
 //Clase principal para las adopciones
 public class AdopcionActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView all_users_list_dogs;
-    private FloatingActionButton add_dogs_adoption;
+    private FloatingActionButton add_dogs_adoption, search_dogs_adoption;
 
     //Firebase
-    private DatabaseReference UsersRef, AdoptionReference;
+    private DatabaseReference UsersRef;
+    private DatabaseReference AdoptionReference;
     private FirebaseAuth mAuth;
     private String currentUserID;
 
 
+/*
+    @Override
+    protected void onStart() {
+        super.onStart();
+        DatabaseReference reference = AdoptionReference.getDatabase().getReference("Adopciones");
+        if (reference == null) {
+
+        } else {
+            MostrarTodasLasAdopciones();
+        }
+    }*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +65,14 @@ public class AdopcionActivity extends AppCompatActivity {
         AdoptionReference = FirebaseDatabase.getInstance().getReference().child("Adopciones");
 
 
+
+
         toolbar = (Toolbar) findViewById(R.id.toolbar_adopcion);
         setSupportActionBar(toolbar);
         toolbar.setTitle("Perros en Adopción");
         all_users_list_dogs = (RecyclerView) findViewById(R.id.all_dogs_post_list);
         add_dogs_adoption = (FloatingActionButton) findViewById(R.id.add_dogs_adoption);
+        search_dogs_adoption = (FloatingActionButton) findViewById(R.id.search_dogs_adoption_location);
 
 
         add_dogs_adoption.setOnClickListener(new View.OnClickListener() {
@@ -76,15 +86,24 @@ public class AdopcionActivity extends AppCompatActivity {
 
             }
         });
+        // Buscar y filtar perros en adopcion por localidad
+        search_dogs_adoption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
     }
 
     // Firebase Adopciones: Añadir los perros a Firebase y mostrarlos en la pantalla principal rellenando con Viewholder los objetos
     private void MostrarTodasLasAdopciones() {
-        Query pos = AdoptionReference.orderByChild("contador");
+        Query pos = AdoptionReference.child("Adopciones").orderByChild("contador");
+
         FirebaseRecyclerOptions<PerrosAdopcionInfo> options = new FirebaseRecyclerOptions.Builder<PerrosAdopcionInfo>().setQuery(pos, PerrosAdopcionInfo.class).build();
         FirebaseRecyclerAdapter<PerrosAdopcionInfo, AdopcionesViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<PerrosAdopcionInfo, AdopcionesViewHolder>(options) {
+            @SuppressLint("SetTextI18n")
             @Override
             protected void onBindViewHolder(@NonNull AdopcionesViewHolder adopcionesViewHolder, int i, @NonNull PerrosAdopcionInfo perrosAdopcionInfo) {
                 //final String PostKey = getRef(i).getKey();
@@ -134,11 +153,11 @@ public class AdopcionActivity extends AppCompatActivity {
 
         public AdopcionesViewHolder(@NonNull View itemView) {
             super(itemView);
-            user = itemView.findViewById(R.id.post_nombre_usuario);
+            user = itemView.findViewById(R.id.post_usuario_adoption);
             dog_name = itemView.findViewById(R.id.dog_name);
             date = itemView.findViewById(R.id.post_date_adoption);
             time = itemView.findViewById(R.id.post_time_adoption);
-            edad = itemView.findViewById(R.id.adoption_edad);
+            edad = itemView.findViewById(R.id.post_adoption_edad);
             description = itemView.findViewById(R.id.dog_description);
             location = itemView.findViewById(R.id.dog_location);
             contact = itemView.findViewById(R.id.dog_contact);

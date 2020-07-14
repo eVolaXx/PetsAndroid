@@ -164,7 +164,7 @@ public class AddDogAdopcion extends AppCompatActivity {
             Toast.makeText(this, "Por favor, introduce el telefono de contacto", Toast.LENGTH_SHORT).show();
         }
         if (TextUtils.isEmpty(dog_location)) {
-            Toast.makeText(this, "Por favor, introduce la ciudad donde se encuentra el perro", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Por favor, introduce la ubicación donde se encuentra el perro", Toast.LENGTH_SHORT).show();
         }
         if (TextUtils.isEmpty(dog_description)) {
             Toast.makeText(this, "Por favor, introduce una breve descripcion del caracter del perro y su comportamiento", Toast.LENGTH_SHORT).show();
@@ -190,7 +190,7 @@ public class AddDogAdopcion extends AppCompatActivity {
                         dogMap.put("description", dog_description);
                         dogMap.put("dog_location", dog_location);
                         dogMap.put("contador", contador_posts++);
-                        AdoptionRef.child(currentUserID + "--" + postRandomName).updateChildren(dogMap).addOnCompleteListener(new OnCompleteListener() {
+                        AdoptionRef.child(currentUserID + postRandomName).updateChildren(dogMap).addOnCompleteListener(new OnCompleteListener() {
                             @Override
                             public void onComplete(@NonNull Task task) {
                                 if (task.isSuccessful()) {
@@ -210,6 +210,7 @@ public class AddDogAdopcion extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(AddDogAdopcion.this, "Ha ocurrido un error : " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
             });

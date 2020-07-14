@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -91,6 +92,7 @@ public class InicioFragment extends Fragment {
         actionBarDrawerToggle = new ActionBarDrawerToggle(getActivity(),drawerLayout,R.string.drawer_open, R.string.drawer_close);   // Boton desplejable menu
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
+
 
 
 
@@ -185,6 +187,12 @@ public class InicioFragment extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here.
         int id = item.getItemId();
+
+        if (id == android.R.id.home) {  // Animacion al abrir la barra lateral dando clic al boton
+            drawerLayout.openDrawer(GravityCompat.START);
+            return true;
+        }
+
 
         if (id == R.id.search_bar) {
             Bundle bundle = new Bundle();
