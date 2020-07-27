@@ -67,7 +67,6 @@ public class PerrosAdopcionInfo {
         this.location = location;
         this.race = race;
         this.age = age;
-        this.dog_image = dog_image;
         this.description = description;
         this.comportamiento = comportamiento;
         this.contact = contact;
