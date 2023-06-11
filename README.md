@@ -1,14 +1,14 @@
 # PetsAndroid
-Red social canina Android Nativo. 
+Proyecto personal de Red social canina en Android Nativo.
 Canine social network for Android
 
 * Principales funciones de la App:
   - Perfil de usuario
   - Agregar y buscar amigos
   - Publicar fotos
-  - Tienda online
-  - Adopciones
-  - Educacion canina Adiestramiento
+  - Tienda online(Se encuentra en desarrollo)
+  - Adopciones(Se encuentra en desarrollo)
+  - Educacion canina Adiestramiento(Se encuentra en desarrollo)
 
 ![Screenshot_2023-06-11-10-57-34-39_252a66e7e7c485fdfbc295c43b9f9d92](https://github.com/eVolaXx/PetsAndroid/assets/6832181/ca0fdffd-747d-44fe-9e34-cf8eadcd0375)
 ![Screenshot_2023-06-11-10-57-44-95_252a66e7e7c485fdfbc295c43b9f9d92](https://github.com/eVolaXx/PetsAndroid/assets/6832181/ac3cc42c-ab85-4eab-bd83-dc9e0a9002b5)
